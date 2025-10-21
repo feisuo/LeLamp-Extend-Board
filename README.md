@@ -22,6 +22,7 @@ LeLamp Extend board consists of five main interface: the **5V Power Input**, the
 ### 1. Setup
 
 ```bash
+
 git clone -b v6.12 https://github.com/HinTak/seeed-voicecard
 sudo ./install.sh
 sudo reboot
@@ -29,6 +30,7 @@ sudo reboot
 
 Test the microphone setup:
 ```bash
+
 # Record test
 arecord -D plughw:CARD=seeed2micvoicec,DEV=0 -r 16000 -c 1 -f S16_LE -t wav -d 5 test.wav
 
@@ -44,6 +46,7 @@ alsamixer -c seeed2micvoicec
 ### 2. Install Required Packages
 
 ```bash
+
 sudo apt-get update
 sudo apt-get install --no-install-recommends git python3-venv libopenblas-dev
 ```

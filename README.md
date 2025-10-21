@@ -14,4 +14,4 @@ LeLamp Extend board consists of five main interface: the **5V Power Input**, the
 ## How to get it
 ### Proofing using the provided source files
 ### [PCBWay](https://www.pcbway.com/project/shareproject/LeLamp_Expansion_Board_38a28335.html)
-### Buy on [Aliexpress]() or [淘宝]()
+### Buy on [Aliexpress]() or [淘宝](https://e.tb.cn/h.SQTekpxcpq8GLRg?tk=7IRnf2EZkhV HU293)

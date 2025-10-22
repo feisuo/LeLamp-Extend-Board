@@ -68,7 +68,7 @@ Afterwards, you can set up the sound level with the following command:
    alsamixer
    ```
 
-Inside alsamixer, you can F6 to select device `seeed2micvoicec`. The audio setting to be edited is `Line`, `Line DAC`, `PCM`. This audio setting can be muted by default, which you can unmute by typing `M` when selecting `Line`. You should set the volume level to 100 on the first try.
+Inside alsamixer, you can F6 to select device `seeed2micvoicec`. The audio setting to be edited is `Speaker`, `PCM Play`, `Mono Out`. This audio setting muted by default, which you can unmute by typing `M`.
 
 ![img.png](assets/alsamixer_orin.png)
 

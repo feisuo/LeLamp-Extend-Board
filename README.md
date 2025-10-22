@@ -14,39 +14,62 @@ LeLamp Extend board consists of five main interface: the **5V Power Input**, the
 ## How to get it
 - ### Proofing using the provided source files
 - ### [PCBWay](https://www.pcbway.com/project/shareproject/LeLamp_Expansion_Board_38a28335.html)
-- ### Buy on [Aliexpress bewait ]() or [淘宝](https://e.tb.cn/h.SQTekpxcpq8GLRg?tk=7IRnf2EZkhV HU293)
+- ### Buy on [Aliexpress bewait ]() or [淘宝](https://e.tb.cn/h.SQTekpxcpq8GLRg?tk=7IRnf2EZkhV)
 
 
 ## Installation Steps
 
 ### 1. Setup
 
-```bash
-
-git clone -b v6.12 https://github.com/HinTak/seeed-voicecard
-sudo ./install.sh
-sudo reboot
-```
+    ```bash
+    git clone -b v6.12 https://github.com/HinTak/seeed-voicecard
+    sudo ./install.sh
+    sudo reboot
+    ```
 
 Test the microphone setup:
-```bash
-
-# Record test
-arecord -D plughw:CARD=seeed2micvoicec,DEV=0 -r 16000 -c 1 -f S16_LE -t wav -d 5 test.wav
-
-# Playback test
-aplay -D plughw:CARD=seeed2micvoicec,DEV=0 test.wav
-
-# Access mixer settings
-alsamixer -c seeed2micvoicec
-```
+    ```bash
+    # Record test
+    arecord -D plughw:CARD=seeed2micvoicec,DEV=0 -r 16000 -c 1 -f S16_LE -t wav -d 5 test.wav
+    
+    # Playback test
+    aplay -D plughw:CARD=seeed2micvoicec,DEV=0 test.wav
+    
+    # Access mixer settings
+    alsamixer -c seeed2micvoicec
+    ```
 
 
 
 ### 2. Install Required Packages
 
-```bash
+    ```bash
+    sudo apt-get update
+    sudo apt-get install --no-install-recommends git python3-venv libopenblas-dev
+    ```
 
-sudo apt-get update
-sudo apt-get install --no-install-recommends git python3-venv libopenblas-dev
-```
+### 3. Check if your device is enabled
+
+   ```bash
+   aplay -l
+   ```
+
+The expected output should be like this:
+
+   ```bash
+   card 2: seeed2micvoicec [seeed2micvoicec], device 0: 1f000a4000.i2s-tlv320aic3x-hifi tlv320aic3x-hifi-0 [1f000a4000.i2s-tlv320aic3x-hifi tlv320aic3x-hifi-0]
+   Subdevices: 1/1
+   Subdevice #0: subdevice #0
+   ```
+
+Afterwards, you can set up the sound level with the following command:
+
+   ```bash
+   alsamixer
+   ```
+
+Inside alsamixer, you can F6 to select device `seeed2micvoicec`. The audio setting to be edited is `Line`, `Line DAC`, `PCM`. This audio setting can be muted by default, which you can unmute by typing `M` when selecting `Line`. You should set the volume level to 100 on the first try.
+
+![img.png](assets/alsamixer_orin.png)
+
+![img.png](assets/alsamixer_change.png)

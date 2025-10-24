@@ -21,14 +21,15 @@ LeLamp Extend board consists of five main interface: the **5V Power Input**, the
 
 ### 1. Setup
 
-    ```bash
+```bash
     git clone -b v6.12 https://github.com/HinTak/seeed-voicecard
     sudo ./install.sh
     sudo reboot
-    ```
+```
 
 Test the microphone setup:
-    ```bash
+
+```bash
     # Record test
     arecord -D plughw:CARD=seeed2micvoicec,DEV=0 -r 16000 -c 1 -f S16_LE -t wav -d 5 test.wav
     
@@ -37,36 +38,36 @@ Test the microphone setup:
     
     # Access mixer settings
     alsamixer -c seeed2micvoicec
-    ```
+```
 
 
 
 ### 2. Install Required Packages
 
-    ```bash
+```bash
     sudo apt-get update
     sudo apt-get install --no-install-recommends git python3-venv libopenblas-dev
-    ```
+```
 
 ### 3. Check if your device is enabled
 
-   ```bash
+```bash
    aplay -l
-   ```
+```
 
 The expected output should be like this:
 
-   ```bash
+```bash
    card 2: seeed2micvoicec [seeed2micvoicec], device 0: 1f000a4000.i2s-tlv320aic3x-hifi tlv320aic3x-hifi-0 [1f000a4000.i2s-tlv320aic3x-hifi tlv320aic3x-hifi-0]
    Subdevices: 1/1
    Subdevice #0: subdevice #0
-   ```
+```
 
 Afterwards, you can set up the sound level with the following command:
 
-   ```bash
+```bash
    alsamixer
-   ```
+```
 
 Inside alsamixer, you can F6 to select device `seeed2micvoicec`. The audio setting to be edited is `Speaker`, `PCM Play`, `Mono Out`. This audio setting muted by default, which you can unmute by typing `M`.
 
